@@ -5,7 +5,7 @@
   </div>
 
   <div class="podcast__container__thumbnail">
-    <img class="podcast__container__thumbnail__image" [src]=podcast.thumbnail alt="thumbnail">
+    <img class="podcast__container__thumbnail__image" [src]=safe_thumbnail_url alt="thumbnail">
   </div>
 
   <div class="podcast__container__info">
@@ -19,15 +19,16 @@
     <h4 class="podcast__container__info__episodes">{{ podcast.total_episodes }} episodes</h4>
 
     <div class="podcast__container__info__links">
-      <h4 class="podcast__container__info__links__link">
+      <a [href]=safe_itunes_url target="_blank" class="podcast__container__info__links__link">
         <span class="icon itunes"></span><span class="text">itunes</span>
-      </h4>
-      <h4 class="podcast__container__info__links__link">
+      </a>
+      <a [href]=safe_website_url target="_blank" class="podcast__container__info__links__link">
         <span class="icon web"></span><span class="text">web</span>
-      </h4>
-      <h4 class="podcast__container__info__links__link">
+      </a>
+      <link rel="alternate" type="application/rss+xml" title="RSS 2.0" [href]=safe_rss_url />
+      <a type="application/rss+xml" [href]=safe_rss_url target="_blank" class="podcast__container__info__links__link">
         <span class="icon rss"></span><span class="text">rss</span>
-      </h4>
+      </a>
     </div>
 
   </div>
