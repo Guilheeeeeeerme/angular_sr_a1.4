@@ -30,10 +30,10 @@
 
 ### Guilherme DID...
 
-[x] State management using NGRX for page_number, genre_name and genre_id 
-[x] Shared data between modules use state management
-[x] No frameworks for css
-[x] Created a genre picker component 
-[x] Add page navigation
-[x] Made the pdf style according to the pdf
-[x] Made it responsible according to the pdf
+- [x] State management using NGRX for page_number, genre_name and genre_id 
+- [x] Shared data between modules use state management
+- [x] No frameworks for css
+- [x] Created a genre picker component 
+- [x] Add page navigation
+- [x] Made the pdf style according to the pdf
+- [x] Made it responsible according to the pdf
