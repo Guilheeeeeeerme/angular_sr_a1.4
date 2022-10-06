@@ -1,0 +1,7 @@
+<label for="genres">Choose a car:</label>
+
+<form [formGroup]="genre_form">
+    <select formControlName="selected_genre_id" name="genres" id="genres">
+        <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+</form>

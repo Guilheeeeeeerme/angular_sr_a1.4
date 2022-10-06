@@ -1,3 +1,9 @@
 <div class="podcasts__container">
-  <podcast-listing *ngFor="let podcast of podcasts | slice:0:5; let i = index" [podcast]="podcast" [index]="i"></podcast-listing>
+  <!-- <podcast-listing *ngFor="let podcast of podcasts | slice:0:5; let i = index" [podcast]="podcast" [index]="i"></podcast-listing> -->
+  <genre-picker [genres]="genres" ></genre-picker>
+  <podcast-listing *ngFor="let podcast of podcasts; let i = index" [podcast]="podcast" [index]="i"></podcast-listing>
+  
+  <button (click)="goPrev()">Prev</button>
+  <button (click)="goNext()">Next</button>
+
 </div>

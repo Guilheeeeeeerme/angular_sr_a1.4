@@ -7,6 +7,9 @@ import { CoreModule } from './@core/core.module';
 import { SharedModule } from './@shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { podcastReducer } from './store/podcast.reducer';
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule.forRoot(),
     SharedModule,
+    StoreModule.forRoot({ podcast: podcastReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

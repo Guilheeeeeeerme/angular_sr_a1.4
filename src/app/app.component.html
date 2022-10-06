@@ -13,7 +13,7 @@
   </nav>
 </div>
 <header class="header">
-  <h1 class="header__title">Top 5 <span class="header__genre" [innerHTML]="genre"></span> Podcasts</h1>
+  <h1 class="header__title">Top <span class="header__genre">{{ genreName$ | async }}</span> Podcasts</h1>
 </header>
 <main>
   <router-outlet></router-outlet>
