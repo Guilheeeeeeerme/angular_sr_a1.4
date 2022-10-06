@@ -26,6 +26,9 @@ export class PodcastListViewComponent implements OnInit, OnDestroy {
   public total_pages = 0;
   public page_number = 0;
 
+  public get has_prev () { return this.page_number > 0 }
+  public get has_next () { return (this.total_pages - this.page_number) > 1 }
+
   constructor(
     private podcastService: PodcastService,
     private store: Store<PodcastState>,

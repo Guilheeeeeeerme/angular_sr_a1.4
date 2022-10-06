@@ -1,10 +1,20 @@
 <div class="podcasts__container">
 
-  <!-- <genre-picker [genres]="genres" ></genre-picker> -->
+  <genre-picker class="podcasts__container__genre__picker" [genres]="genres"></genre-picker>
 
-  <!-- <button (click)="goPrev()">Prev</button> -->
-  <!-- <button (click)="goNext()">Next</button> -->
+  <podcast-listing *ngFor="let podcast of podcasts; let i = index" [podcast]="podcast" [index]="getRankingForIndex(i)">
+  </podcast-listing>
 
-  <podcast-listing *ngFor="let podcast of podcasts; let i = index" [podcast]="podcast" [index]="getRankingForIndex(i)"></podcast-listing>
+  <div class="podcasts__container__pagination">
+    <div class="podcasts__container__pagination__button podcasts__container__pagination__button__prev">
+      <button class="button prev" [disabled]="!has_prev" (click)="has_prev && goPrev()"></button>
+    </div>
+    <h4 class="podcasts__container__pagination__page gradient__text">
+      {{ page_number + 1 }} of {{ total_pages }}
+    </h4>
+    <div class="podcasts__container__pagination__button podcasts__container__pagination__button__next">
+      <button class="button next" [disabled]="!has_next" (click)="has_next && goNext()"></button>
+    </div>
+  </div>
 
 </div>

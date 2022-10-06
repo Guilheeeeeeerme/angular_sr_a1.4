@@ -2,14 +2,30 @@
 @import './fonts.scss';
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+html,
+body {
   font-family: $secondary-font-style;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $primary-font-style;
 }
 
 h1 {
   font-size: 2.75em;
+}
+
+.gradient__text {
+  background-color: $accent-contrast;
+  background-image: linear-gradient(45deg, $accent-contrast, $accent-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }

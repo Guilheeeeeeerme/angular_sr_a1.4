@@ -5,9 +5,82 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: $spacing 0 100px 0;
+    padding: $spacing 1em 100px 1em;
+
     @media screen and (min-width: 810px) {
       align-items: center;
+      padding: $spacing 0 100px 0;
+    }
+
+    &__genre__picker {
+      margin: auto;
+    }
+
+    &__pagination {
+      flex-grow: 1;
+      width: 100%;
+
+      margin-top: $spacing;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      @media screen and (min-width: 810px) {
+        width: 810px;
+      }
+
+      &__page {
+        justify-self: center;
+      }
+
+      &__button {
+        display: inline-block;
+
+        // background-color: $accent-contrast;
+        // background-image: linear-gradient(180deg, $accent-contrast, $accent-primary);
+
+        // width: 5em;
+        // height: 5em;
+        // line-height: 5em;
+        // border-radius: 50%;
+
+        &__next {
+          justify-self: end;
+        }
+
+        &__prev {
+          justify-self: start;
+        }
+
+        .button {
+          height: 100%;
+          background: none;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          padding: 10px;
+          padding-right: 1em;
+          background-size: 2em;
+          border: none;
+
+          &:disabled {
+            opacity: 0.5;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
+
+          &.prev {
+            background-image: url('/assets/images/triangle-prev.svg');
+          }
+
+          &.next {
+            background-image: url('/assets/images/triangle-next.svg');
+          }
+
+        }
+
+      }
     }
   }
 }
