@@ -6,9 +6,151 @@
     flex-grow: 1;
     width: 100%;
     margin-top: $spacing;
-    @media screen and (min-width: 810px)
-    {
+    margin-bottom: $spacing;
+
+    display: grid;
+    grid-template-columns: 0 150px auto 1fr;
+
+    gap: $spacing;
+    padding: 2.5em 2.5em 2.5em 0;
+
+    border-radius: 5px;
+    box-shadow: 0 0 $box-shadow-blur -3px $accent-primary;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 0 150px 2fr 2fr;
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 810px) {
       width: 810px;
     }
+
+    &__thumbnail {
+
+      &__image {
+        position: relative;
+        right: 50px;
+        height: 200px;
+      }
+    }
+
+    &__info {
+
+      &__title {
+
+        font-family: $primary-font-style;
+        font-weight: 600;
+        margin: 0;
+        line-height: .8em;
+      }
+
+      &__publisher {
+        &__name {
+          color: $accent-primary;
+        }
+      }
+
+      &__publisher,
+      &__episodes {
+        font-family: $primary-font-style;
+        font-weight: 400;
+        margin-top: 1rem;
+      }
+
+      &__links {
+        border-top: thin solid $link-color;
+
+        &__link {
+
+          font-size: 1em;
+          font-family: $primary-font-style;
+          font-weight: 600;
+          display: inline-block;
+          text-transform: uppercase;
+
+          padding: 1em 1em .5em 0;
+          margin: 0;
+
+          color: $link-color;
+
+          &:hover {
+            color: $link-hover-color;
+
+            .icon {
+              stroke: $link-hover-color;
+            }
+          
+          }
+
+          .icon {
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            padding: 10px;
+            padding-right: 1em;
+            background-size: 1em;
+          }
+
+          .itunes {
+            background-image: url('/assets/images/apple.svg')
+          }
+
+          .web {
+            background-image: url('/assets/images/link.svg')
+          }
+
+          .rss {
+            background-image: url('/assets/images/rss.svg')
+          }
+
+        }
+      }
+    }
+
+    &__ranking {
+
+      background-color: $accent-contrast;
+      background-image: linear-gradient(180deg, $accent-contrast, $accent-primary);
+      display: inline-block;
+
+      width: 5em;
+      height: 5em;
+      line-height: 5em;
+      border-radius: 50%;
+      text-align: center;
+
+      position: relative;
+      top: -5em;
+      left: 10px;
+      z-index: 2;
+
+      @media screen and (min-width: 768px) {
+        position: relative;
+        top: -2.5em;
+        left: -140px;
+      }
+
+      &__title {
+        right: -100px;
+        color: $white;
+        font-family: $primary-font-style;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+      }
+
+    }
+
+    &__description {
+      font-size: 1.20em;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      
+      @media screen and (min-width: 768px) {
+        grid-column: 4;
+      }
+    }
+
   }
+
 }

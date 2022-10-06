@@ -22,6 +22,10 @@ export class PodcastListViewComponent implements OnInit, OnDestroy {
   public podcasts: Podcast[] = [];
   public genres: PodcastGenre[] = [];
 
+  public offset = 0;
+  public total_pages = 0;
+  public page_number = 0;
+
   constructor(
     private podcastService: PodcastService,
     private store: Store<PodcastState>,
@@ -40,7 +44,10 @@ export class PodcastListViewComponent implements OnInit, OnDestroy {
     ]).subscribe(([podcastListState, genres]) => {
 
       this.genres = genres;
+
       let podcasts: Podcast[] = [];
+      let total_pages = 0;
+      let offset = 0;
 
       const { genre_id, page_number, page_size } = podcastListState;
 
@@ -49,20 +56,29 @@ export class PodcastListViewComponent implements OnInit, OnDestroy {
         var genrePodcasts = genres.filter(g => g.id == genre_id);
 
         if (genrePodcasts.length > 0) {
-          const offset = page_number * page_size;
+
+          offset = page_number * page_size;
           const offset_limit = offset + page_size;
 
           podcasts = genrePodcasts[0].podcasts;
           if (podcasts?.length > 0) {
+            total_pages = Math.ceil(podcasts?.length / page_size)
             podcasts = podcasts.slice(offset, offset_limit)
           }
         }
       }
 
+      this.page_number = page_number;
+      this.total_pages = total_pages;
+      this.offset = offset;
       this.podcasts = podcasts;
 
     }))
 
+  }
+
+  getRankingForIndex(index: number) {
+    return (index + this.offset + 1)
   }
 
   goPrev() {

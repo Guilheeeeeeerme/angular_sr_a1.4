@@ -3,11 +3,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
-  font-family: 'WorkSans';
+  font-family: $secondary-font-style;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'SpaceMono';
+  font-family: $primary-font-style;
 }
 
 h1 {
