@@ -8,8 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build -- --configuration production --base-href /angular_sr_a1.4/ --deploy-url /angular_sr_a1.4/",
+    "deploy": "gh-pages -d dist/podcast-app"
   },
   "private": true,
   "dependencies": {

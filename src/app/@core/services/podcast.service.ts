@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, ObservableInput, of } from 'rxjs';
 import { PodcastGenre } from '@core/models/podcast-genre';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PodcastService
@@ -14,7 +15,7 @@ export class PodcastService
   getPodcastGenres() : Observable<PodcastGenre[]>
   {
     return this.httpClient
-      .get<PodcastGenre[]>("/assets/data/podcasts-by-genre.json")
+      .get<PodcastGenre[]>(environment.baseUri)
       .pipe(catchError(this.handleError));
   }
 
